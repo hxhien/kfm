@@ -1,0 +1,237 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="<?php echo $this->keyword?>"/>
+  <meta name="description" content="<?php echo $this->description;?>"/>
+  <title><?php echo ($this->title? $this->title : "Kwak Family Medicine, PC"); ?></title>
+  <?php echo $this->headLink()->appendStylesheet('/css/style.css?20110404') ?>
+  <script type="text/javascript" src="/js/common.js?20110404"></script>
+  <script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-21819218-1']);
+	  _gaq.push(['_setDomainName', '.kwakfamilymedicine.com']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+</head>
+<body>
+<div class="page-margin">
+		<div class="header">
+			<img src="/images/logo.png" class="logo" />
+			<div class="top-block">
+				<ul id="container-language">
+                        <li><a href="<?php global $en_url; echo $en_url;?>" alt="English" title="English" <?php global $current_language; if ($current_language == 'en') echo "style='font-weight:bold'"; ?> >English</a></li>
+                        <li><a href="<?php global $kr_url; echo $kr_url;?>" alt="한국어"  title="한국어" <?php global $current_language; if ($current_language == 'kr') echo "style='font-weight:bold'"; ?>>한국어</a></li>
+                        <li><a href="<?php global $vi_url; echo $vi_url;?>" alt="Tiếng Việt" title="Tiếng Việt" <?php global $current_language; if ($current_language == 'vi') echo "style='font-weight:bold'"; ?>>Tiếng Việt</a></li>
+                        <li class="last"><a href="#" onmouseover="mopen('m1')" onmouseout="mclosetime()">All Languages</a>
+                        	<div id="m1" 
+					            onmouseover="mcancelclosetime()" 
+					            onmouseout="mclosetime()">
+					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Cfr&hl=en&ie=UTF8" target="_blank">Français</a>
+					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Ces&hl=en&ie=UTF8" target="_blank">Español</a>
+					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Cpt&hl=en&ie=UTF8" target="_blank">Português</a>
+					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Cja&hl=en&ie=UTF8" target="_blank">日本語</a>
+					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Czh_tw&hl=en&ie=UTF8" target="_blank">中文</a>
+					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Cde&hl=en&ie=UTF8" target="_blank">Deutsch</a>
+					        </div>
+                        </li>
+                 </ul>
+                 <br class="clr"/>
+                <!--           
+				<?php echo _t("LBL_Languages");?>: <a href="">English</a>   <a href="">Tiếng Việt</a>   <a href="">한국어</a> <br/>				
+				<?php echo _t("LBL_Languages");?>&nbsp;&nbsp; <a href="<?php global $en_url; echo $en_url;?>" alt="English" title="English"><img src="/images/en_f.png"/></a>   
+									  <a href="<?php global $kr_url; echo $kr_url;?>" alt="한국어"  title="한국어"><img src="/images/kr_f.png"/></a>   
+									  <a href="<?php global $vi_url; echo $vi_url;?>" alt="Tiếng Việt" title="Tiếng Việt"><img src="/images/vi_f.png"/></a> <br/>
+				-->					  
+				<div class="search-block">
+					<script language="javascript">
+						var lbl_Search = '<?php echo _t("LBL_Search");?>';
+					</script>
+					<form action="http://www.google.com/cse" id="cse-search-box">
+						<input type="text" name="q" id="txtSearch" class="hintTxt" value="<?php echo _t("LBL_Search");?>" onclick="txtSeach_onclick(this)" onblur="txtSearch_onblur(this)" /> <a href="#" onclick="txtSearch_submit();return false;"><img src="/images/search_ic.jpg"/></a>
+						<input type="hidden" name="cx" value="013612915737327158346:9fe6jixc-3m" />
+				        <input type="hidden" name="ie" value="UTF-8" />
+				        <input type="submit" name="sa" value="Search" style="display:none"/>
+					</form>
+				</div>
+			</div>
+			<br class="clr"/>
+			<div class="nav">		                                                    		              
+				<ul>
+					<li<?php echo ($this->action == 'index'  && $this->controller == 'index' ? ' class="current"' : '') ?>><a href="/index"><?php echo _t("LBL_MENU_Home");?></a></li>
+					<li<?php echo ($this->action == 'about' ? ' class="current"' : '') ?>><a href="/index/about"><?php echo _t("LBL_MENU_About Dr. Kwak");?></a></li>
+					<li<?php echo ($this->action == 'location' ? ' class="current"' : '') ?>><a href="/index/location"><?php echo _t("LBL_MENU_Location and hours");?></a></li>
+					<li<?php echo ($this->action == 'contact' ? ' class="current"' : '') ?>><a href="/index/contact"><?php echo _t("LBL_MENU_Contact us");?></a></li>
+					<li<?php echo ($this->action == 'faq' ? ' class="current"' : '') ?>><a href="/index/faq"><?php echo _t("LBL_MENU_FAQ");?></a></li>
+					<li<?php echo ($this->action == 'insurance' ? ' class="current"' : '') ?>><a href="/index/insurance"><?php echo _t("LBL_MENU_Insurance");?></a></li>
+					<li<?php echo ($this->action == 'news' ? ' class="current"' : '') ?>><a href="/index/news"><?php echo _t("LBL_MENU_News");?></a></li>
+					<li<?php echo ($this->action == 'links' ? ' class="current"' : '') ?>><a href="/index/links"><?php echo _t("LBL_MENU_Links");?></a></li>
+					<li<?php echo ($this->action == 'forms' ? ' class="current"' : '') ?>><a href="/index/forms"><?php echo _t("LBL_MENU_Forms");?></a></li>
+					<?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
+						<li class="user-link" align=right><a href="/index/logout">Logout</a></li>
+					<?php }else{ ?>
+					<li class="user-link" align=right><a href="/index/login"><?php echo _t("LBL_MENU_My Patient Page");?></a></li>
+					<?php } ?>
+				</ul>
+			</div>
+			<?php if ($this->action == 'index' && $this->controller == 'index'){ ?>
+			<div class="flash">
+				<img src="/images/central_img.jpg"/>
+			</div>
+			<?php } ?>
+		</div>
+		<?php if ($this->action != 'index' || $this->controller != 'index'){ ?>
+		<br class="clr"/>
+		<?php } 
+			$main_css_class = 'index';
+			if ($this->controller == 'index'){
+				switch ($this->action){
+					case 'about' :
+						$main_css_class = "about";
+						break;
+					case 'faq' :
+						$main_css_class = "faq";
+						break;
+					case 'page' :
+						$main_css_class = "news";
+						break;
+					case 'news' :
+						$main_css_class = "news";
+						break;
+				}
+			}
+		?>
+		<div class="main <?php echo $main_css_class;?>">
+			<div class="left">
+				<?php echo $this->layout()->content ?>
+			</div>
+			<div class="right">
+			<?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
+				<div class="right-menu-block">
+					<div class="title-1">
+						Admin menu
+					</div>
+					<div>
+						<ul>
+							<li>
+								<a href="/node/?type=news">News Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=page">Pages Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=testimonial">Testimonials Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=label">Label Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=link">Link Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=block">Blocks Management</a>
+							</li>
+							<li>
+								<a href="/index/logout">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<?php } ?>
+				
+				<?php 
+					if ($this->action != 'location')
+					echo VNMLS_Model_Table_Node::getTestimonialsBlockHTML(); 
+				?>
+				<div class="home-contact-block" <?php echo ($this->action == 'location' ? 'style="margin-top:0px"' : '');?>>
+					<?php echo getBlockContent(5);?>
+				</div>
+				
+				<div class="home-contact-block">
+					<div class="title-1"> <?php echo _t("LBL_KFM on Facebook");?> </div>
+					<div class="home-contant-content">
+						<?php 
+							global $current_language;
+							$fb_language = "en_US";
+							if ($current_language == 'vi') $fb_language = "vi_VN";
+							else if($current_language == 'kr') $fb_language = "ko_KR";
+						?>
+						<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FKwak-Family-Medicine-PC%2F158413460880351&amp;width=270&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=262" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:262px;" allowTransparency="true"></iframe>
+					</div>
+				</div>				
+				<div class="home-contact-block">
+					<div class="title-1"> <?php echo _t("LBL_KFM on Twitter");?> </div>
+					<div class="home-contant-content">
+						<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+						<script>
+						new TWTR.Widget({
+						  version: 2,
+						  type: 'profile',
+						  rpp: 4,
+						  interval: 6000,
+						  width: 270,
+						  height: 300,
+						  theme: {
+						    shell: {
+						      background: '#35607a',
+						      color: '#ffffff'
+						    },
+						    tweets: {
+						      background: '#ffffff',
+						      color: '#000000',
+						      links: '#35607a'
+						    }
+						  },
+						  features: {
+						    scrollbar: false,
+						    loop: false,
+						    live: false,
+						    hashtags: true,
+						    timestamp: true,
+						    avatars: false,
+						    behavior: 'all'
+						  }
+						}).render().setUser('jameskwakmd').start();
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br class="clr"/>
+		<div class="footer">
+			<div class="foot-nav">
+				<ul>
+					<li<?php echo ($this->action == 'index'  && $this->controller == 'index' ? ' class="current"' : '') ?>><a href="/index"><?php echo _t("LBL_MENU_Home");?></a></li>
+					<li<?php echo ($this->action == 'about' ? ' class="current"' : '') ?>><a href="/index/about"><?php echo _t("LBL_MENU_About Dr. Kwak");?></a></li>
+					<li<?php echo ($this->action == 'location' ? ' class="current"' : '') ?>><a href="/index/location"><?php echo _t("LBL_MENU_Location and hours");?></a></li>
+					<li<?php echo ($this->action == 'contact' ? ' class="current"' : '') ?>><a href="/index/contact"><?php echo _t("LBL_MENU_Contact us");?></a></li>
+					<li<?php echo ($this->action == 'faq' ? ' class="current"' : '') ?>><a href="/index/faq"><?php echo _t("LBL_MENU_FAQ");?></a></li>
+					<li<?php echo ($this->action == 'insurance' ? ' class="current"' : '') ?>><a href="/index/insurance"><?php echo _t("LBL_MENU_Insurance");?></a></li>
+					<li<?php echo ($this->action == 'news' ? ' class="current"' : '') ?>><a href="/index/news"><?php echo _t("LBL_MENU_News");?></a></li>
+					<li<?php echo ($this->action == 'links' ? ' class="current"' : '') ?>><a href="/index/links"><?php echo _t("LBL_MENU_Links");?></a></li>
+					<li<?php echo ($this->action == 'forms' ? ' class="current"' : '') ?>><a href="/index/forms"><?php echo _t("LBL_MENU_Forms");?></a></li>
+					<?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
+						<li class="user-link" align=right><a href="/index/logout">Logout</a></li>
+					<?php }else{ ?>
+					<li class="user-link" align=right><a href="/index/login"><?php echo _t("LBL_MENU_My Patient Page");?></a></li>
+					<?php } ?>
+				</ul>
+			</div>
+			<div class="copyright-block">
+				<div class="left">
+					<img src="/images/footer_logo.jpg"/> <span>Copyright 2011 by James J. Kwak, M.D. All rights reserved</span>
+				</div>
+				<div class="right">
+					<a href="http://www.facebook.com/pages/Kwak-Family-Medicine-PC/158413460880351"><img src="/images/facebook.jpg" border="0"/></a><a href="http://twitter.com/jameskwakmd"><img src="/images/twitter.jpg" border="0"/></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

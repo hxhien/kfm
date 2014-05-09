@@ -1,0 +1,129 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+<div class="left-content">
+    <!--
+	<div class="newslettlers_wrapper">
+        <div class="container">
+            <div align="center">
+                <a href="/images/newslettlers/Thanksgiving_Chirstmas 2011.jpg" rel="prettyPhoto" title="This is the description">
+                    <img src="/images/newslettlers/Thanksgiving_Chirstmas 2011_small.jpg" border="0" alt=""/>
+                </a>
+            </div>
+            <div class="meta">
+                Thanksgiving/Chirstmas 2011
+            </div>
+        </div>
+    </div>
+
+    <div class="newslettlers_wrapper">
+        <div class="container">
+            <div align="center">
+                <img src="/images/newslettlers/Thanksgiving_Chirstmas 2011_small.jpg" border="0" alt=""/>
+            </div>
+            <div class="meta">
+                Thanksgiving/Chirstmas 2011
+            </div>
+        </div>
+    </div>
+
+    <div class="newslettlers_wrapper wrapper_right">
+        <div class="container">
+            <div align="center">
+                <img src="/images/newslettlers/Thanksgiving_Chirstmas 2011_small.jpg" border="0" alt=""/>
+            </div>
+            <div class="meta">
+                Thanksgiving/Chirstmas 2011
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+    <div class="newslettlers_wrapper">
+        <div class="container">
+            <div align="center">
+                <img src="/images/newslettlers/Thanksgiving_Chirstmas 2011_small.jpg" border="0" alt=""/>
+            </div>
+            <div class="meta">
+                Thanksgiving/Chirstmas 2011
+            </div>
+        </div>
+    </div>
+-->
+</div>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        var htmlTemplate = '<div class="newslettlers_wrapper {{wrapper_right}}">\
+                              <div class="container">\
+                                  <div align="center">\
+                                      <a href="/images/newslettlers/{{file_full}}" rel="prettyPhoto" title="">\
+                                          <img src="/images/newslettlers/{{file_small}}" border="0" alt=""/>\
+                                      </a>\
+                                  </div>\
+                                  <div class="meta">{{title}}</div>\
+                              </div>\
+                           </div>';
+        var arrNewsletters = [
+							  {
+                                  title: 'Winter edition 2013',
+                                  file_full: 'Winter_2013.jpg',
+                                  file_small: 'Winter_2013_small.jpg'
+                              },
+                              {
+                                  title: 'Fall edition 2013',
+                                  file_full: 'Fall_2013.jpg',
+                                  file_small: 'Fall_2013_small.jpg'
+                              },
+                              {
+                                  title: 'Late spring edition 2013',
+                                  file_full: 'Spring_2013.jpg',
+                                  file_small: 'Spring_2013_small.jpg'
+                              },
+                              {
+                                  title: 'Winter edition \'12~\'13',
+                                  file_full: 'Winter_2012.jpg',
+                                  file_small: 'Winter_2012_small.jpg'
+                              },
+                              {
+                                  title: 'Fall 2012 Edition',
+                                  file_full: 'Fall_2012.jpg',
+                                  file_small: 'Fall_2012_small.jpg'
+                              },
+                              {
+                                  title: 'Summer 2012 Edition',
+                                  file_full: 'Summer_2012.jpg',
+                                  file_small: 'Summer_2012_small.jpg'
+                              },
+                              {
+                                  title: 'Spring 2012 Edition',
+                                  file_full: 'Spring_2012.jpg',
+                                  file_small: 'Spring_2012_small.jpg'
+                              },
+                              {
+                                  title: 'Thanksgiving/Chirstmas 2011',
+                                  file_full: 'Thanksgiving_Chirstmas_2011.jpg',
+                                  file_small: 'Thanksgiving_Chirstmas_2011_small.jpg'
+                              },                              
+                           ]
+        var nTotal = arrNewsletters.length;
+        var attr = ['wrapper_right', 'file_full', 'file_small', 'title'];
+        var htmls = [];
+        for (var i = 1; i <= nTotal; i++) {
+            var data = arrNewsletters[i - 1];
+            if (i % 3 == 0) {
+                data['wrapper_right'] = 'wrapper_right';
+            } else {
+                data['wrapper_right'] = '';
+            }
+            var html = htmlTemplate;
+            for (var j = 0; j < attr.length; j++) {
+                html = html.replace('{{' + attr[j] + '}}', data[attr[j]]);
+            }
+            htmls.push(html)
+            if (i % 3 == 0) {
+                htmls.push('<div style="clear: both"></div>');
+            }
+        }
+        $(".left-content").html(htmls.join(''));
+        $("a[rel^='prettyPhoto']").prettyPhoto({ allow_resize: false });
+    });
+</script>

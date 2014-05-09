@@ -1,0 +1,27 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+<div class="left-content">
+	<div class="top-banner-normal">
+		<img src="/images/common_banner.jpg"/>
+	</div>
+	<div class="page-title" style="width:220px">
+		<h1><?php echo _t("LBL_MENU_About Dr. Kwak");?></h1>
+		<div>
+			<img src="/images/drkwak.jpg?v=3"/>
+		</div>
+	</div>
+	<div class="page-content" style="margin-left: 220px;">
+		<div style="margin-left:22px;padding: 10px;background-color: #FFFFFF;border: 1px solid #CCCCCC;width:340px;height:182px">
+			<a href="http://www.youtube.com/watch?v=WsxlGwxFa48" rel="prettyPhoto" class="-cx-PRIVATE-fbMarketingVideo__link"><img width="340" height="182" alt="" class="-cx-PRIVATE-fbMarketingVideo__placeholder" src="/images/a_talk_with_dr_kwak.jpg">
+				<i class="-cx-PRIVATE-fbMarketingVideo__playButton -cx-PRIVATE-fbMarketingVideo__centerPlayButton" style="background-image: url(/images/play_movie_icon.png);height: 62px;width: 92px;left: 50%;margin: -28px -46px;position: absolute;top: 50%;"></i>			
+			</a>		
+		</div>
+		<?php echo $this->body; ?>
+	</div>
+</div>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+  });
+</script>

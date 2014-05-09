@@ -1,0 +1,57 @@
+<div class="left-content">
+	<div>
+		<h1 style="text-align:left"><?php echo ucfirst($this->node_type);?> Content Management</h1>
+		<div>
+			Below is list of <?php echo $this->node_type;?>, please click icon <img src="/images/a_edit.png" border="0"></a> to update <?php echo $this->node_type;?>,
+			click <img src="/images/a_delete.png" border="0"> to delete <?php echo $this->node_type;?>
+			or click <img src="/images/a_add.png" border="0"> to add new <?php echo $this->node_type;?>
+		</div>
+	</div>
+	
+	<div class="list_results" style="padding-top:10px">
+		  <div style="height:25px;float:right">
+		  	<a title="Add new <?php echo $this->node_type;?>" href="/node/detail?type=<?php echo $this->node_type;?>" style="font-weight:bold"><img src="/images/a_add.png" border="0"> Add new <?php echo $this->node_type;?></a>
+		  </div>
+		  <table width="100%" border="0">
+			<tr>
+			    <th width="40">ID</th>
+			    <th><?php echo ucfirst($this->node_type);?> Name</th>
+			    <?php if ($this->node_type == 'news' || $this->node_type == 'link'){?>
+			    <th width="40">Live</th>	
+			    <?php }?>
+			    <th width="100">Languages</th>
+			    <th width="50">&nbsp;</th>
+			</tr>
+			<?php
+				foreach($this->nodes as $node){
+			?>
+			<tr>
+			    <td style="text-align:center"><?php echo $node['id']; ?></td>
+			    <td>
+			    <?php 
+			    	if ($this->node_type == 'page'){
+			    		$urlTitle = urlencode($node['title']);
+			    		if (isset(VNMLS_Model_Table_Node::$LIST_SITE_DEFAULT_PAGE[$node['id']])){
+			    			echo "<a href='/index/".VNMLS_Model_Table_Node::$LIST_SITE_DEFAULT_PAGE[$node['id']]."'>".$node['title']."</a>";
+			    		}else
+			    			echo "<a href='/index/page/".$node['id']."/$urlTitle'>".$node['title']."</a>";
+			    	}else{
+			    		echo $node['title'];
+			    	} 
+			    ?>
+			    </td>
+			    <?php if ($this->node_type == 'news' || $this->node_type == 'link'){?>
+			    <td align="center"><?php echo ($node['status'] == 'active' ? 'ON' : "OFF" )?></td>	
+			    <?php }?>
+			    <td style="text-align:center"><?php echo showFlagLanguages($node['languages']); ?></td>
+			    <td style="text-align:center">
+			    	<a title="Update" href="/node/detail?id=<?php echo $node['id']; ?>"><img src="/images/a_edit.png" border="0"></a> 
+			    	<a title="Delete" href="#" onclick="alert('Under contruction');return false;"><img src="/images/a_delete.png" border="0"></a>
+			    </td>
+			</tr>
+			<?php
+				} 
+			?>
+			</table>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/js/node.js"></script>
+<div class="left-content">
+	<div>
+		<h1 style="text-align:left"><?php echo ($this->node_id ? 'Edit' : 'New') ?> <?php echo $this->node_type; ?></h1>
+		<div>
+			Not require input for all language
+		</div>
+	</div>
+	<form action="/node/detailconfirm" method="POST" id="node_form" name="node_form">
+		<input type="hidden" name="node_id" value="<?php echo $this->node_id; ?>">
+		<input type="hidden" name="node_type" value="<?php echo $this->node_type; ?>">
+	<div id="form_message_id">
+	</div>
+	<div style="padding-top:15px">
+		<?php 
+			$detail_sub_filename = $this->node_type;
+			if ($detail_sub_filename == 'news') $detail_sub_filename = 'page';
+			include(APPLICATION_PATH."/views/scripts/node/detail_$detail_sub_filename.php");
+		?>
+	</div>
+	</form>
+</div>

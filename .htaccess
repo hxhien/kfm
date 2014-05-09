@@ -1,0 +1,20 @@
+#AddType x-mapp-php5 .php
+#AddHandler x-mapp-php5 .php
+
+RewriteEngine On
+RewriteBase /
+
+#RewriteCond % ^www.kwakfamilymedicine.com [NC]
+#RewriteRule ^(.*)$ http://kwakfamilymedicine.com/$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} -s
+RewriteRule ^.*$ - [NC,L]
+RewriteRule !\.(js|ico|gif|jpg|png|css|html|docx|pdf)$ index.php
+Options -MultiViews
+
+#RewriteRule !.(js|css|ico|gif|jpg|png|html|docx|pdf)$ index.php
+#RewriteCond %{REQUEST_FILENAME} -s [OR]
+#RewriteCond %{REQUEST_FILENAME} -l [OR]
+#RewriteCond %{REQUEST_FILENAME} -d
+#RewriteRule ^.*$ - [NC,L]
+#RewriteRule ^.*$ index.php [NC,L]

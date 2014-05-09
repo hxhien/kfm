@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Login</title>
+  <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.login-cont {
+    height: 340px;
+    min-height: 340px;
+    padding-top: 30px;
+}
+
+.login-block {
+    border: 1px solid #CCCCCC;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    width: 300px;
+}
+
+.login-title {
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.login-messages {
+    color: #FF0000;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+.login-block label, .login-block input {
+    margin-top: 5px;
+}
+
+.login-block label {
+    float: left;
+    width: 100px;
+}
+
+.login-block input {
+    width: 180px;
+}
+
+.login-block label, .login-block input {
+    margin-top: 5px;
+}
+
+</style>
+
+
+</head>
+
+<body>
+	<div class="page-margin">
+		<div style="text-align: center; vertical-align: middle;" class="login-cont">
+			<form method="post" action="/auth/viewlogin" name="login_form" id="login_form" class="login-block">
+				<div class="login-title">Login</div>
+				<div id="login_message_id" class="login-messages">&nbsp;</div>
+				<label>Login:</label> <input type="text" name="username"><br>					
+				<label>Password:</label> <input type="password" name="password"><br><br>
+				<label> </label><input type="submit" value="Login" style="width:50px;">&nbsp;&nbsp; <input type="reset" value="Reset" style="width:50px;">
+				<input type="submit" style="background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0pt none;" value="">
+				<input type="hidden" value="true" id="login_from_corporate" name="login_from_corporate"><br>
+				<label> </label>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

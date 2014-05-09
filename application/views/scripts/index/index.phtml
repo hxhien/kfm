@@ -1,0 +1,31 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+<div class="left-content">
+	<div class="page-title">
+		<h1> <?php echo _t('LBL_About Our Practice');?></h1>
+		<hr/>
+		<span>
+			<i>“<?php echo _t('LBL_Where Your Family’s Health Is Protected');?>”</i>
+		</span>
+	</div>
+	<div class="page-content">
+		<div style="margin-left:8px;padding: 10px;background-color: #FFFFFF;border: 1px solid #CCCCCC;width:340px;height:182px">
+			<a href="http://www.youtube.com/watch?v=rDl-XQs3Sug" rel="prettyPhoto" class="-cx-PRIVATE-fbMarketingVideo__link"><img width="340" height="182" alt="" class="-cx-PRIVATE-fbMarketingVideo__placeholder" src="/images/welcome_video.jpg">
+				<i class="-cx-PRIVATE-fbMarketingVideo__playButton -cx-PRIVATE-fbMarketingVideo__centerPlayButton" style="background-image: url(/images/play_movie_icon.png);height: 62px;width: 92px;left: 50%;margin: -28px -46px;position: absolute;top: 50%;"></i>			
+			</a>		
+		</div>
+		<?php echo $this->body; ?>  
+	</div>
+	<br/>
+	<div class="page-content" style="text-align: center;font-size:14px;">
+		<div style="padding:15px 0">
+			<?php echo _t('LBL_Core_Values_KFM');?>
+		</div>	
+	</div>
+</div>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+  });
+</script>
