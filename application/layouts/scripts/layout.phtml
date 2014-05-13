@@ -1,13 +1,17 @@
-<?php echo $this->doctype() ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="keywords" content="<?php echo $this->keyword?>"/>
-  <meta name="description" content="<?php echo $this->description;?>"/>
-  <title><?php echo ($this->title? $this->title : "Kwak Family Medicine, PC"); ?></title>
-  <?php echo $this->headLink()->appendStylesheet('/css/style.css?20130923') ?>
-  <script type="text/javascript" src="/js/common.js?20110405"></script>
-  <script type="text/javascript">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="<?php echo $this->keyword?>"/>
+    <meta name="description" content="<?php echo $this->description;?>"/>
+    <meta name="viewport" content="width=1130" />
+    <title><?php echo ($this->title? $this->title : "Kwak Family Medicine, PC"); ?></title>
+    <?php echo $this->headLink()->appendStylesheet('/css/style.css?20130923') ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/common.js?20110405"></script>
+    <script src="/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+    <script type="text/javascript">
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-21819218-1']);
 	  _gaq.push(['_setDomainName', '.kwakfamilymedicine.com']);
@@ -19,226 +23,230 @@
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 	</script>
-</head>
-<body>
-<div class="page-margin">
+    <script>
+      $(document).ready(function () {
+          $("#top-bg").show();
+          $("#top-bg").css("left", $("#header-logo").offset().left);
+          $(window).resize(function () {
+              $("#top-bg").css("left", $("#header-logo").offset().left);
+          });
+      });
+   </script>
+  </head>
+  <body>
+    <div id="top-bg">
+    </div>
+    <div class="page-margin">
 		<div class="header">
-			<img src="/images/logo.png" class="logo" />
-			<div class="top-block">
-				<ul id="container-language">
-                        <li><a href="<?php global $en_url; echo $en_url;?>" alt="English" title="English" <?php global $current_language; if ($current_language == 'en') echo "style='font-weight:bold'"; ?> >English</a></li>
-                        <li><a href="<?php global $kr_url; echo $kr_url;?>" alt="한국어"  title="한국어" <?php global $current_language; if ($current_language == 'kr') echo "style='font-weight:bold'"; ?>>한국어</a></li>
-                        <!-- <li><a href="<?php global $vi_url; echo $vi_url;?>" alt="Tiếng Việt" title="Tiếng Việt" <?php global $current_language; if ($current_language == 'vi') echo "style='font-weight:bold'"; ?>>Tiếng Việt</a></li> -->
+			<div class="header-logo left" id="header-logo">
+				<img src="/images/logo.png" alt="Kwak Family Medicine FC"/>
+			</div>
+            <div class="social-connect right">                
+				<a href="http://www.facebook.com/pages/Kwak-Family-Medicine-PC/158413460880351"><img src="/images/icon_fb.png" border="0" alt="Facebook"></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://twitter.com/jameskwakmd"><img src="/images/icon_twitter.png" border="0" alt="Twitter"></a>				
+            </div>
+		</div>
+        <div class="clr"></div>
+        <div class="left-content">
+            <div class="nav-bar">
+                <ul>
+                    <li class="current"><div><a href="./index.html">Home</a></div></li>
+				    <li><div><a href="./about.html">About Dr. Kwak</a></div></li>
+				    <li><div><a href="./staff.html">Staff</a></div></li>
+				    <li><div><a href="./location.html">Location and hours</a></div></li>
+				    <li><div><a href="./contact.html">Contact us</a></div></li>
+				    <li><div><a href="./faq.html">FAQ</a></div></li>
+				    <li><div><a href="./insurance.html">Insurance</a></div></li>
+				    <li><div><a href="./news.html">News</a></div></li>
+				    <li><div><a href="./links.html">Links</a></div></li>
+				    <li><div><a href="./forms.html">Forms</a></div></li>
+                    <li><div><a href="./newsletters.html">Newsletters</a></div></li>
+                </ul>
+            </div>
+            <div class="clr"></div>
+            <div class="address-block">
+                <div class="address">
+                    <span class='sprite icon_add left'></span>
+                    <div>
+                        1930 Rt. 70 E. G-38 (Executive Mews) 
+                        Cherry Hill, NJ 08003-2150
+                    </div>
+                </div>
+
+                <div class="phone">
+                    <span class='sprite icon_phone left'></span>
+                    <div>
+                        856.520.8718
+                        <br/>856.873.3266 (Korean)
+                    </div>
+                </div>
+
+                <div class="fax">
+                    <span class='sprite icon_fax left'></span>
+                    <div>
+                        856.520.8719
+                    </div>
+                </div>
+
+                <div class="email">
+                    <span class='sprite icon_mail left'></span>
+                    <div>
+                        kwak.family.medicine@hotmail.com
+                    </div>
+                </div>                
+            </div>
+            <div class="search-box">
+            </div>
+            <div class="working-hour">
+                <ul>
+                    <li class="header">Working Hours</li>
+                    <li><div>Mon</div> 10 AM - 7 PM</li>
+                    <li class="blue"><div class="">Tue</div> 1 PM - 5 PM</li>
+                    <li><div>Wed</div> 8 AM - 5 PM</li>
+                    <li class="blue"><div>Thu	</div>	10 AM - 7 PM</li>
+                    <li><div>Fri</div> 9  AM - 3 PM</li>
+                    <li class="blue"><div>Sat <span class="tip">(closed 4th Sat)</span></div> 8 AM - 12 PM</li>
+                </ul>
+            </div>
+            
+            <div class="core-value-box">
+                <div class='sprite typo_1'></div>
+            </div>
+        </div>
+        <div class="right-content">
+            <div class="banner-container">
+                <div class="language-bar">
+                    <ul id="container-language">
+                        <li><a href="http://kwakfamilymedicine.com/" alt="English" title="English" style="font-weight:bold">English</a></li>
+                        <li><a href="http://kr.kwakfamilymedicine.com/" alt="한국어" title="한국어">한국어</a></li>
                         <li class="last"><a href="#" onmouseover="mopen('m1')" onmouseout="mclosetime()">All Languages</a>
-                        	<div id="m1" 
-					            onmouseover="mcancelclosetime()" 
-					            onmouseout="mclosetime()">
-					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Cfr&hl=en&ie=UTF8" target="_blank">Français</a>
-					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Ces&hl=en&ie=UTF8" target="_blank">Español</a>
-					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Cpt&hl=en&ie=UTF8" target="_blank">Português</a>
-					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Cja&hl=en&ie=UTF8" target="_blank">日本語</a>
-					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Czh_tw&hl=en&ie=UTF8" target="_blank">中文</a>
-					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Cde&hl=en&ie=UTF8" target="_blank">Deutsch</a>
-					        <a href="http://www.google.com/translate?u=<?php echo (urlencode($en_url)); ?>&langpair=en%7Cvi&hl=en&ie=UTF8" target="_blank">Tiếng Việt</a>
+                        	<div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()" style="visibility: hidden;">
+					        <a href="http://www.google.com/translate?u=http%3A%2F%2Fkwakfamilymedicine.com%2F&amp;langpair=en%7Cfr&amp;hl=en&amp;ie=UTF8" target="_blank">Français</a>
+					        <a href="http://www.google.com/translate?u=http%3A%2F%2Fkwakfamilymedicine.com%2F&amp;langpair=en%7Ces&amp;hl=en&amp;ie=UTF8" target="_blank">Español</a>
+					        <a href="http://www.google.com/translate?u=http%3A%2F%2Fkwakfamilymedicine.com%2F&amp;langpair=en%7Cpt&amp;hl=en&amp;ie=UTF8" target="_blank">Português</a>
+					        <a href="http://www.google.com/translate?u=http%3A%2F%2Fkwakfamilymedicine.com%2F&amp;langpair=en%7Cja&amp;hl=en&amp;ie=UTF8" target="_blank">日本語</a>
+					        <a href="http://www.google.com/translate?u=http%3A%2F%2Fkwakfamilymedicine.com%2F&amp;langpair=en%7Czh_tw&amp;hl=en&amp;ie=UTF8" target="_blank">中文</a>
+					        <a href="http://www.google.com/translate?u=http%3A%2F%2Fkwakfamilymedicine.com%2F&amp;langpair=en%7Cde&amp;hl=en&amp;ie=UTF8" target="_blank">Deutsch</a>
+					        <a href="http://www.google.com/translate?u=http%3A%2F%2Fkwakfamilymedicine.com%2F&amp;langpair=en%7Cvi&amp;hl=en&amp;ie=UTF8" target="_blank">Tiếng Việt</a>
 					        </div>
                         </li>
                  </ul>
-                 <br class="clr"/>
-                <!--           
-				<?php echo _t("LBL_Languages");?>: <a href="">English</a>   <a href="">Tiếng Việt</a>   <a href="">한국어</a> <br/>				
-				<?php echo _t("LBL_Languages");?>&nbsp;&nbsp; <a href="<?php global $en_url; echo $en_url;?>" alt="English" title="English"><img src="/images/en_f.png"/></a>   
-									  <a href="<?php global $kr_url; echo $kr_url;?>" alt="한국어"  title="한국어"><img src="/images/kr_f.png"/></a>   
-									  <a href="<?php global $vi_url; echo $vi_url;?>" alt="Tiếng Việt" title="Tiếng Việt"><img src="/images/vi_f.png"/></a> <br/>
-				-->					  
-				<div class="search-block">
-					<script language="javascript">
-						var lbl_Search = '<?php echo _t("LBL_Search");?>';
-					</script>
-					<form action="http://www.google.com/cse" id="cse-search-box">
-						<input type="text" name="q" id="txtSearch" class="hintTxt" value="<?php echo _t("LBL_Search");?>" onclick="txtSeach_onclick(this)" onblur="txtSearch_onblur(this)" /> <a href="#" onclick="txtSearch_submit();return false;"><img src="/images/search_ic.jpg"/></a>
-						<input type="hidden" name="cx" value="013612915737327158346:9fe6jixc-3m" />
-				        <input type="hidden" name="ie" value="UTF-8" />
-				        <input type="submit" name="sa" value="Search" style="display:none"/>
-					</form>
-				</div>
-			</div>
-			<br class="clr"/>
-			<div class="nav">		                                                    		              
-				<ul>
-					<li<?php echo ($this->action == 'index'  && $this->controller == 'index' ? ' class="current"' : '') ?>><a href="/index"><?php echo _t("LBL_MENU_Home");?></a></li>
-					<li<?php echo ($this->action == 'about' ? ' class="current"' : '') ?>><a href="/index/about"><?php echo _t("LBL_MENU_About Dr. Kwak");?></a></li>
-					<li<?php echo ($this->action == 'staff' ? ' class="current"' : '') ?>><a href="/index/staff"><?php echo _t("LBL_MENU_Staff");?></a></li>
-					<li<?php echo ($this->action == 'location' ? ' class="current"' : '') ?>><a href="/index/location"><?php echo _t("LBL_MENU_Location and hours");?></a></li>
-					<li<?php echo ($this->action == 'contact' ? ' class="current"' : '') ?>><a href="/index/contact"><?php echo _t("LBL_MENU_Contact us");?></a></li>
-					<li<?php echo ($this->action == 'faq' ? ' class="current"' : '') ?>><a href="/index/faq"><?php echo _t("LBL_MENU_FAQ");?></a></li>
-					<li<?php echo ($this->action == 'insurance' ? ' class="current"' : '') ?>><a href="/index/insurance"><?php echo _t("LBL_MENU_Insurance");?></a></li>
-					<li<?php echo ($this->action == 'news' ? ' class="current"' : '') ?>><a href="/index/news"><?php echo _t("LBL_MENU_News");?></a></li>
-					<li<?php echo ($this->action == 'links' ? ' class="current"' : '') ?>><a href="/index/links"><?php echo _t("LBL_MENU_Links");?></a></li>
-					<li<?php echo ($this->action == 'forms' ? ' class="current"' : '') ?>><a href="/index/forms"><?php echo _t("LBL_MENU_Forms");?></a></li>
-                    <li<?php echo ($this->action == 'newsletters' ? ' class="current"' : '') ?>><a href="/index/newsletters"><?php echo _t("LBL_MENU_Newsletters");?></a></li>
-					<?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
-						<li class="user-link" align=right><a href="/index/logout">Logout</a></li>
-					<?php }else{ ?>
-					<li class="user-link" align=right><a href="/index/login"><?php echo _t("LBL_MENU_My Patient Page");?></a></li>
-					<?php } ?>
-				</ul>
-			</div>
-			<?php if ($this->action == 'index' && $this->controller == 'index'){ ?>
-			<div class="flash">
-				<img src="/images/central_img.jpg"/>
-			</div>
-			<?php } ?>
-		</div>
-		<?php if ($this->action != 'index' || $this->controller != 'index'){ ?>
-		<br class="clr"/>
-		<?php } 
-			$main_css_class = 'index';
-			if ($this->controller == 'index'){
-				switch ($this->action){
-					case 'about' :
-						$main_css_class = "about";
-						break;
-					case 'faq' :
-						$main_css_class = "faq";
-						break;
-					case 'page' :
-						$main_css_class = "news";
-						break;
-					case 'news' :
-						$main_css_class = "news";
-						break;
-					case 'staff' :
-						$main_css_class = "staff";
-						break;
-				}
-			}
-		?>
-		<div class="main <?php echo $main_css_class;?>">
-			<div class="left">
-				<?php echo $this->layout()->content ?>
-			</div>
-			<div class="right">
-			<?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
-				<div class="right-menu-block">
-					<div class="title-1">
-						Admin menu
-					</div>
-					<div>
-						<ul>
-							<li>
-								<a href="/node/?type=news">News Management</a>
-							</li>
-							<li>
-								<a href="/node/?type=page">Pages Management</a>
-							</li>
-							<li>
-								<a href="/node/?type=testimonial">Testimonials Management</a>
-							</li>
-							<li>
-								<a href="/node/?type=label">Label Management</a>
-							</li>
-							<li>
-								<a href="/node/?type=link">Link Management</a>
-							</li>
-							<li>
-								<a href="/node/?type=block">Blocks Management</a>
-							</li>
-							<li>
-								<a href="/index/logout">Logout</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<?php } ?>
-				
-				<?php 
-					if ($this->action != 'location')
-					echo VNMLS_Model_Table_Node::getTestimonialsBlockHTML(); 
-				?>
-				<div class="home-contact-block" <?php echo ($this->action == 'location' ? 'style="margin-top:0px"' : '');?>>
-					<?php echo getBlockContent(5);?>
-				</div>
-				
-				<div class="home-contact-block">
-					<div class="title-1"> <?php echo _t("LBL_KFM on Facebook");?> </div>
+                </div>
+                <div class="banner-image index-banner">
+                    <div class="banne-slogan">
+                        <div>WHERE YOUR FAMILY'S HEALTH IS PROTECTED</div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-container">
+                <div class="page-content">
+                    <div class="page-title">
+                        <div class="sub">Welcome to</div>
+                        <div class="main">our site</div>
+                     </div>
+                    <?php echo $this->layout()->content ?>
+                    <!--
+                    <div class="detail-content">     
+		                <div style="margin:-5px 0 10px 10px;position: relative;cursor:pointer;">
+                            <a href="http://www.youtube.com/watch?v=rDl-XQs3Sug" rel="prettyPhoto">
+                            <div style="position: absolute;left:217px;top:110px;">
+                                <img width="120" alt="Welcome to Kwak Family Medicine video" src="/images/play_movie_icon.png"/>
+                            </div>
+			                <img width="537" alt="Welcome to Kwak Family Medicine video" src="/images/welcome_video.jpg"/>
+                            </a>		
+		                </div>
+                        <script type="text/javascript" charset="utf-8">
+                        $(document).ready(function(){
+                            $("a[rel^='prettyPhoto']").prettyPhoto();
+                        });
+                        </script>
+		                <p>
+	                        Welcome to Kwak Family Medicine, PC (KFM), the practice of James J. Kwak, MD, FAAFP.&nbsp; KFM is a solo primary-care office that cares for all ages from infants to the elderly.&nbsp; We offer preventative as well as problem-focused office visits to help manage our patients’ health.&nbsp; Patients can bring their children as well as their elderly parents; we want to care for your entire family’s health.&nbsp;</p>
+                        <br/>
+                        <p>
+	                        At KFM, we take your health seriously.&nbsp; Using state-of-the art equipment, we can perform spirometry test and electrocardiogram.&nbsp; We use a web-based electronic medical record system that protects patients’ confidentiality and safe-guards the data, while making the records easily accessible to us and to the patients.&nbsp; Our patients will have access to some of the key elements of their own medical records via internet.&nbsp; As more exciting technological innovations become available in healthcare, they will be closely studied to see if they can be embraced at KFM.&nbsp;</p>
+                        <br/>
+                        <p>
+	                    Dr. Kwak is an experienced board-certified family physician skilled in managing and diagnosing a wide array of childhood and adult medical problems.&nbsp; He is diligent about keeping abreast of the latest standards in family medicine and is skilled in the art of listening.&nbsp; He has a strong interest in musculoskeletal medicine and office procedures, offering the following services to his patients – prolotherapy, steroid joint injections, laceration repairs, nail surgery, thrombosed hemorrhoid excision, Cosmetic Botox,&nbsp;and dermatologic surgical procedures.&nbsp;</p>
+                        <br/>
+                        <p>
+	                    If a referral or a recommendation to a specialist is needed, Dr. Kwak will gladly assist you in finding the best consultant to manage your condition.</p>
+                    </div>
+                    -->                   
+                </div>
+                <div class="page-content-right">
+                <div class="testimonials-container">
+                    <div class="title">
+                        What our patients say?
+                    </div>
+                    <div id="testo-list">
+                    <div class="testo-detail">
+                        <div class="testo-logo">
+                            <span class='sprite testi_1 left'></span>
+                        </div>
+                        <div class="testo-content">
+                            <div class="testo-name">Donna</div>
+                            <div class="testo-text">
+                                “During a physical exam, Dr. Kwak discovered an abnormal prostate in my husband. Even though his age and PSA were not in favor of prostate cancer, Dr. Kwak immediately ordered a biopsy and even went to bat with the insurance company down to the wire to ensure that the testing could be done. As it turned out, my husband did have prostate cancer and we are forever grateful to Dr. Kwak for finding it early, and saving his life.”
+                            </div>                        
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="testo-break-line"></div>
+                    <div class="testo-detail">
+                        <div class="testo-logo">
+                            <span class='sprite testi_2 left'></span>
+                        </div>
+                        <div class="testo-content">
+                            <div class="testo-name">Donna</div>
+                            <div class="testo-text">
+                                “During a physical exam, Dr. Kwak discovered an abnormal prostate in my husband. Even though his age and PSA were not in favor of prostate cancer, Dr. Kwak immediately ordered a biopsy and even went to bat with the insurance company down to the wire to ensure that the testing could be done. As it turned out, my husband did have prostate cancer and we are forever grateful to Dr. Kwak for finding it early, and saving his life.”
+                            </div>                        
+                        </div>
+                    </div>
+                    </div>
+                    <div class="testo-more">
+                        Read more <span id="testo_more_next" class="sprite icon_next right"></span> <span id="testo_more_back" class="sprite icon_back right"></span>
+                    </div>
+                </div>
+                <div class="clr"></div>
+                <div class="facebook-plugin-block">
+					<div class="title"> Find us on Facebook </div>
 					<div class="home-contant-content">
-						<?php 
-							global $current_language;
-							$fb_language = "en_US";
-							if ($current_language == 'vi') $fb_language = "vi_VN";
-							else if($current_language == 'kr') $fb_language = "ko_KR";
-						?>
-						<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FKwak-Family-Medicine-PC%2F158413460880351&amp;width=270&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=262" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:262px;" allowTransparency="true"></iframe>
-					</div>
-				</div>				
-				<div class="home-contact-block">
-					<div class="title-1"> <?php echo _t("LBL_KFM on Twitter");?> </div>
-					<div class="home-contant-content">
-						<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-						<script>
-						new TWTR.Widget({
-						  version: 2,
-						  type: 'profile',
-						  rpp: 4,
-						  interval: 6000,
-						  width: 270,
-						  height: 300,
-						  theme: {
-						    shell: {
-						      background: '#35607a',
-						      color: '#ffffff'
-						    },
-						    tweets: {
-						      background: '#ffffff',
-						      color: '#000000',
-						      links: '#35607a'
-						    }
-						  },
-						  features: {
-						    scrollbar: false,
-						    loop: false,
-						    live: false,
-						    hashtags: true,
-						    timestamp: true,
-						    avatars: false,
-						    behavior: 'all'
-						  }
-						}).render().setUser('jameskwakmd').start();
-						</script>
+					    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FKwak-Family-Medicine-PC%2F158413460880351&amp;width=290&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=262" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:290px; height:262px;" allowTransparency="true"></iframe>
 					</div>
 				</div>
-			</div>
-		</div>
-		<br class="clr"/>
-		<div class="footer">
-			<div class="foot-nav">
-				<ul>
-					<li<?php echo ($this->action == 'index'  && $this->controller == 'index' ? ' class="current"' : '') ?>><a href="/index"><?php echo _t("LBL_MENU_Home");?></a></li>
-					<li<?php echo ($this->action == 'about' ? ' class="current"' : '') ?>><a href="/index/about"><?php echo _t("LBL_MENU_About Dr. Kwak");?></a></li>
-					<li<?php echo ($this->action == 'staff' ? ' class="current"' : '') ?>><a href="/index/staff"><?php echo _t("LBL_MENU_Staff");?></a></li>
-					<li<?php echo ($this->action == 'location' ? ' class="current"' : '') ?>><a href="/index/location"><?php echo _t("LBL_MENU_Location and hours");?></a></li>
-					<li<?php echo ($this->action == 'contact' ? ' class="current"' : '') ?>><a href="/index/contact"><?php echo _t("LBL_MENU_Contact us");?></a></li>
-					<li<?php echo ($this->action == 'faq' ? ' class="current"' : '') ?>><a href="/index/faq"><?php echo _t("LBL_MENU_FAQ");?></a></li>
-					<li<?php echo ($this->action == 'insurance' ? ' class="current"' : '') ?>><a href="/index/insurance"><?php echo _t("LBL_MENU_Insurance");?></a></li>
-					<li<?php echo ($this->action == 'news' ? ' class="current"' : '') ?>><a href="/index/news"><?php echo _t("LBL_MENU_News");?></a></li>
-					<li<?php echo ($this->action == 'links' ? ' class="current"' : '') ?>><a href="/index/links"><?php echo _t("LBL_MENU_Links");?></a></li>
-					<li<?php echo ($this->action == 'forms' ? ' class="current"' : '') ?>><a href="/index/forms"><?php echo _t("LBL_MENU_Forms");?></a></li>
-					<?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
-						<li class="user-link" align=right><a href="/index/logout">Logout</a></li>
-					<?php }else{ ?>
-					<li class="user-link" align=right><a href="/index/login"><?php echo _t("LBL_MENU_My Patient Page");?></a></li>
-					<?php } ?>
-				</ul>
-			</div>
-			<div class="copyright-block">
-				<div class="left">
-					<img src="/images/footer_logo.jpg"/> <div>Copyright 2011 by James J. Kwak, M.D. All rights reserved</div>
-				</div>
-				<div class="right">
-					<a href="http://www.facebook.com/pages/Kwak-Family-Medicine-PC/158413460880351"><img src="/images/facebook.jpg" border="0"/></a><a href="http://twitter.com/jameskwakmd"><img src="/images/twitter.jpg" border="0"/></a>
-				</div>
-			</div>
-		</div>
+                </div>                    
+            </div>
+
+        </div>
 	</div>
-</body>
+    <div class="clr"></div>
+	<div style="margin-top: 15px;background: #2d78d3;width: 100%;">
+        <div class="page-margin">
+            <div class="foot-nav">
+				<ul>
+					<li class="current"><a href="/index">Home</a></li>
+					<li><a href="/index/about">About Dr. Kwak</a></li>
+					<li><a href="/index/staff">Staff</a></li>
+					<li><a href="/index/location">Location and hours</a></li>
+					<li><a href="/index/contact">Contact us</a></li>
+					<li><a href="/index/faq">FAQ</a></li>
+					<li><a href="/index/insurance">Insurance</a></li>
+					<li><a href="/index/news">News</a></li>
+					<li><a href="/index/links">Links</a></li>
+					<li><a href="/index/forms">Forms</a></li>
+				</ul>
+                <div class="user-link">
+                    <a href="/index/login">My Patient Page</a>
+                </div>
+			</div>
+            <div class="clr"></div>
+            <div class="copyright-block">
+                Copyright 2014 by James J. Kwak, M.D. All rights reserved
+            </div>
+        </div>
+    </div>
+  </body>
 </html>

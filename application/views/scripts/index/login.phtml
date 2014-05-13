@@ -1,19 +1,14 @@
-<div class="left-content">
-	<div class="top-banner-normal">
-		<img src="/images/login_banner.jpg"/>
-	</div>
-	<div>
-		<div style="text-align: center; vertical-align: middle;" class="login-cont">
-			<form method="post" action="/index/login" name="login_form" id="login_form" class="login-block">
-				<div class="login-title">Login</div>
-				<div id="login_message_id" class="login-messages"><?= _t($this->message)?></div>
-				<label>Username:</label> <input type="text" name="username"><br>					
-				<label>Password:</label> <input type="password" name="password"><br><br>
-				<label> </label><input type="submit" value="Login" style="width:50px;">&nbsp;&nbsp; <input type="reset" value="Reset" style="width:50px;">
-				<input type="submit" style="background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0pt none;" value="">
-				<br>
-				<label> </label>
-			</form>
-		</div>
+<div class="detail-content">     
+    <div style="text-align: center; vertical-align: middle;" class="login-cont">
+		<form method="post" action="/index/login" name="login_form" id="login_form" class="login-block">
+			<div class="login-title">Login</div>
+			<div id="login_message_id" class="login-messages"><?= _t($this->message)?></div>
+			<label>Username:</label> <input type="text" name="username"><br>					
+			<label>Password:</label> <input type="password" name="password"><br><br>
+			<label> </label><input type="submit" value="Login" style="width:50px;">&nbsp;&nbsp; <input type="reset" value="Reset" style="width:50px;">
+			<input type="submit" style="background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0pt none;" value="">
+			<br>
+			<label> </label>
+		</form>
 	</div>
 </div>
