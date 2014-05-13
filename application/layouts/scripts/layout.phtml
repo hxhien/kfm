@@ -51,20 +51,55 @@
         <div class="left-content">
             <div class="nav-bar">
                 <ul>
-                    <li class="current"><div><a href="./index.html">Home</a></div></li>
-				    <li><div><a href="./about.html">About Dr. Kwak</a></div></li>
-				    <li><div><a href="./staff.html">Staff</a></div></li>
-				    <li><div><a href="./location.html">Location and hours</a></div></li>
-				    <li><div><a href="./contact.html">Contact us</a></div></li>
-				    <li><div><a href="./faq.html">FAQ</a></div></li>
-				    <li><div><a href="./insurance.html">Insurance</a></div></li>
-				    <li><div><a href="./news.html">News</a></div></li>
-				    <li><div><a href="./links.html">Links</a></div></li>
-				    <li><div><a href="./forms.html">Forms</a></div></li>
-                    <li><div><a href="./newsletters.html">Newsletters</a></div></li>
+                    <li<?php echo ($this->action == 'index'  && $this->controller == 'index' ? ' class="current"' : '') ?>><div><a href="/index"><?php echo _t("LBL_MENU_Home");?></a></div></li>
+					<li<?php echo ($this->action == 'about' ? ' class="current"' : '') ?>><div><a href="/index/about"><?php echo _t("LBL_MENU_About Dr. Kwak");?></a></div></li>
+					<li<?php echo ($this->action == 'staff' ? ' class="current"' : '') ?>><div><a href="/index/staff"><?php echo _t("LBL_MENU_Staff");?></a></div></li>
+					<li<?php echo ($this->action == 'location' ? ' class="current"' : '') ?>><div><a href="/index/location"><?php echo _t("LBL_MENU_Location and hours");?></a></div></li>
+					<li<?php echo ($this->action == 'contact' ? ' class="current"' : '') ?>><div><a href="/index/contact"><?php echo _t("LBL_MENU_Contact us");?></a></div></li>
+					<li<?php echo ($this->action == 'faq' ? ' class="current"' : '') ?>><div><a href="/index/faq"><?php echo _t("LBL_MENU_FAQ");?></a></div></li>
+					<li<?php echo ($this->action == 'insurance' ? ' class="current"' : '') ?>><div><a href="/index/insurance"><?php echo _t("LBL_MENU_Insurance");?></a></div></li>
+					<li<?php echo ($this->action == 'news' ? ' class="current"' : '') ?>><div><a href="/index/news"><?php echo _t("LBL_MENU_News");?></a></div></li>
+					<li<?php echo ($this->action == 'links' ? ' class="current"' : '') ?>><div><a href="/index/links"><?php echo _t("LBL_MENU_Links");?></a></div></li>
+					<li<?php echo ($this->action == 'forms' ? ' class="current"' : '') ?>><div><a href="/index/forms"><?php echo _t("LBL_MENU_Forms");?></a></div></li>
+                    <li<?php echo ($this->action == 'newsletters' ? ' class="current"' : '') ?>><div><a href="/index/newsletters"><?php echo _t("LBL_MENU_Newsletters");?></a></div></li>
                 </ul>
             </div>
             <div class="clr"></div>
+
+            <?php //if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
+				<div style="">
+					<div class="title-1">
+						Admin menu
+					</div>
+					<div>
+						<ul>
+							<li>
+								<a href="/node/?type=news">News Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=page">Pages Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=testimonial">Testimonials Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=label">Label Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=link">Link Management</a>
+							</li>
+							<li>
+								<a href="/node/?type=block">Blocks Management</a>
+							</li>
+							<li>
+								<a href="/index/logout">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<?php //} ?>
+
+
             <div class="address-block">
                 <div class="address">
                     <span class='sprite icon_add left'></span>
