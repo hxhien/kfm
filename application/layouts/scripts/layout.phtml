@@ -66,9 +66,9 @@
             </div>
             <div class="clr"></div>
 
-            <?php //if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
-				<div style="">
-					<div class="title-1">
+            <?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
+				<div class="admin-menu-container">
+					<div class="title">
 						Admin menu
 					</div>
 					<div>
@@ -81,6 +81,9 @@
 							</li>
 							<li>
 								<a href="/node/?type=testimonial">Testimonials Management</a>
+							</li>
+                            <li>
+								<a href="/node/?type=faq">Faq Management</a>
 							</li>
 							<li>
 								<a href="/node/?type=label">Label Management</a>
@@ -97,7 +100,7 @@
 						</ul>
 					</div>
 				</div>
-				<?php //} ?>
+				<?php } ?>
 
 
             <div class="address-block">
@@ -175,12 +178,7 @@
                 </div>
             </div>
             <div class="main-container">
-                <div class="page-content">
-                    <div class="page-title">
-                        <div class="sub">Welcome to</div>
-                        <div class="main">our site</div>
-                     </div>
-                    <?php echo $this->layout()->content ?>
+                <?php echo $this->layout()->content ?>
                     <!--
                     <div class="detail-content">     
 		                <div style="margin:-5px 0 10px 10px;position: relative;cursor:pointer;">
@@ -208,8 +206,8 @@
                         <p>
 	                    If a referral or a recommendation to a specialist is needed, Dr. Kwak will gladly assist you in finding the best consultant to manage your condition.</p>
                     </div>
-                    -->                   
-                </div>
+                    -->                
+               <?php if ($this->controller == 'index'){ ?>
                 <div class="page-content-right">
                 <div class="testimonials-container">
                     <div class="title">
@@ -252,7 +250,8 @@
 					    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FKwak-Family-Medicine-PC%2F158413460880351&amp;width=290&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=262" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:290px; height:262px;" allowTransparency="true"></iframe>
 					</div>
 				</div>
-                </div>                    
+                </div>
+              <?php } ?>                    
             </div>
 
         </div>
@@ -261,20 +260,24 @@
 	<div style="margin-top: 15px;background: #2d78d3;width: 100%;">
         <div class="page-margin">
             <div class="foot-nav">
-				<ul>
-					<li class="current"><a href="/index">Home</a></li>
-					<li><a href="/index/about">About Dr. Kwak</a></li>
-					<li><a href="/index/staff">Staff</a></li>
-					<li><a href="/index/location">Location and hours</a></li>
-					<li><a href="/index/contact">Contact us</a></li>
-					<li><a href="/index/faq">FAQ</a></li>
-					<li><a href="/index/insurance">Insurance</a></li>
-					<li><a href="/index/news">News</a></li>
-					<li><a href="/index/links">Links</a></li>
-					<li><a href="/index/forms">Forms</a></li>
+                <ul>
+                    <li<?php echo ($this->action == 'index'  && $this->controller == 'index' ? ' class="current"' : '') ?>><a href="/index"><?php echo _t("LBL_MENU_Home");?></a></li>
+					<li<?php echo ($this->action == 'about' ? ' class="current"' : '') ?>><a href="/index/about"><?php echo _t("LBL_MENU_About Dr. Kwak");?></a></li>
+					<li<?php echo ($this->action == 'staff' ? ' class="current"' : '') ?>><a href="/index/staff"><?php echo _t("LBL_MENU_Staff");?></a></li>
+					<li<?php echo ($this->action == 'location' ? ' class="current"' : '') ?>><a href="/index/location"><?php echo _t("LBL_MENU_Location and hours");?></a></li>
+					<li<?php echo ($this->action == 'contact' ? ' class="current"' : '') ?>><a href="/index/contact"><?php echo _t("LBL_MENU_Contact us");?></a></li>
+					<li<?php echo ($this->action == 'faq' ? ' class="current"' : '') ?>><a href="/index/faq"><?php echo _t("LBL_MENU_FAQ");?></a></li>
+					<li<?php echo ($this->action == 'insurance' ? ' class="current"' : '') ?>><a href="/index/insurance"><?php echo _t("LBL_MENU_Insurance");?></a></li>
+					<li<?php echo ($this->action == 'news' ? ' class="current"' : '') ?>><a href="/index/news"><?php echo _t("LBL_MENU_News");?></a></li>
+					<li<?php echo ($this->action == 'links' ? ' class="current"' : '') ?>><a href="/index/links"><?php echo _t("LBL_MENU_Links");?></a></li>
+					<li<?php echo ($this->action == 'forms' ? ' class="current"' : '') ?>><a href="/index/forms"><?php echo _t("LBL_MENU_Forms");?></a></li>
 				</ul>
                 <div class="user-link">
-                    <a href="/index/login">My Patient Page</a>
+                    <?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
+						<a href="/index/logout">Logout</a>
+					<?php }else{ ?>
+					<a href="/index/login"><?php echo _t("LBL_MENU_My Patient Page");?></a>
+					<?php } ?>
                 </div>
 			</div>
             <div class="clr"></div>

@@ -32,7 +32,7 @@ class NodeController extends BaseController
 	    	$this->view->node_type = $node->type;
 	    	$this->view->node_id = $node_id;
 	    	$this->view->node_name = $node->title;
-	    	if ( in_array($node->type, array('page', 'block', 'news'))){
+	    	if ( in_array($node->type, array('page', 'block', 'news', 'faq'))){
 	    		$contents = $node->getNodeContent();
 	    		foreach($contents as $content){
 	    			$title_lbl = "title_".$content['language'];
@@ -93,7 +93,7 @@ class NodeController extends BaseController
 		$arrLanguage = array();
 		$arrContent = array();
 		$node->status = $status;
-		if ( in_array($node->type, array('page', 'block', 'news'))){
+		if ( in_array($node->type, array('page', 'block', 'news', 'faq'))){
 			foreach($languages as $language){
 				$title_text = $_POST['title_'.$language];
 				$body_text = $_POST['body_'.$language];
@@ -148,7 +148,7 @@ class NodeController extends BaseController
 				$data['node_id'] = $node->id;
 				$data['language'] = $arrLanguage[$idx];
 				$db->insert("node_". $node->type ."_content", $data);
-			}   		
+			}
     	}
     	$this->view->node_type = $node_type;
     	$this->view->editMode = $editMode;

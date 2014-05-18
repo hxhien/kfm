@@ -1,17 +1,43 @@
-<div class="left-content">
-	<div class="news-header"><h1><?php echo _t("LBL_MENU_News");?></h1></div>
-	<div class="page-content">
-		<div class="all-news">
-			<div class="list-news">
-				<?php echo $this->htmlResult;?>
-				<!-- 
-				<ul>
-					<li><a href="">New patients are welcomed and accepted.</a> <span class="news-date">(22/12/2010 17:12)</span> <img src="/images/new.gif" style="padding: 0pt; float: none;"></li>
-					<li><a href="">Join KFM on facebook and twitter</a> <span class="news-date">(22/12/2010 17:12)</span></li>
-					<li><span class="news-title-text">100th and 1000th patient to join the practice will win a special prize.</span> <span class="news-date">(22/12/2010 17:12)</span></li>
-				</ul>
-				 -->
-			</div>
-		</div>
-	</div>
+<div class="page-content">
+    <div class="page-title">
+        <div class="sub">What’s on</div>
+        <div class="main">today</div>
+        </div>                    
+    <div class="detail-content-news">
+        <div class="news-detail purple-bg">
+            <a target="facebook_page" href="https://www.facebook.com/158413460880351/posts/650508325004193">&#8680; May 2nd is Kwak Family Medicine's 3rd-year anniversary. 
+            We thank the support of our patients through these early years. We couldn't have done it without you. 
+            We now have over 2,600 active patients. Let us continue to serve you.
+            </a>
+            <div>2014-12-12 21:12:13</div>
+        </div>
+        <div class="news-detail">
+            <a target="facebook_page" href="https://www.facebook.com/158413460880351/posts/650508325004193">&#8680; Dr. Kwak is on vacation Monday thru Wednesday. Our office is open however. Feel free to call the office if there is any issue.
+                </a>
+            <div>2014-12-12 21:12:13</div>
+        </div>
+        <div class="news-detail purple-bg">
+            <a target="facebook_page" href="https://www.facebook.com/158413460880351/posts/650508325004193">&#8680; College students looking for an exciting summer internship at KFM may apply. Opportunities to help our practice do population health management and help with Meaningful Use Project of electronic medical record exist. This internship can expose future medical doctors to see how a busy primary care office operates.</a>
+            <div>2014-12-12 21:12:13</div>
+        </div>
+        <div class="news-detail">
+            <a target="facebook_page" href="https://www.facebook.com/158413460880351/posts/650508325004193">&#8680; A few exciting additions to our practice:
+
+            We will be able to check patients' electrical rhythm via an app/iphone that we can rent out to the patients. The rhythm will be sent automatically into patients' charts. How cool is that?!?
+
+            Dr. Kwak has purchased a panoptic ophthalmoscope to better visualize the back of the eyes and using an app/iphone he can even take photos of the patients' eyes and save it in patients' charts. 
+
+            Folks, also you can send secure emails to Dr. Kwak through your patientfusion portal website where you can check your lab results and schedule appointments yourselves. 
+
+            As we see more exciting technological advancements, we'll keep implementing to our practice.</a>
+            <div>2014-12-12 21:12:13</div>
+        </div>
+    </div>          
 </div>
+<div id='fb-root'></div>
+<script src='http://connect.facebook.net/en_US/all.js'></script>
+<script type="text/javascript">
+    FB.api('/158413460880351/feed', function(response) {
+      console.log(response);
+    });    
+</script>

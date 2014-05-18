@@ -33,11 +33,8 @@ class IndexController extends BaseController
     }
 	
 	public function faqAction(){
-		global $current_language;
-    	$node = VNMLS_Db_Table::fetch("Node", 3);
-    	$content = $node->getNodeContentByLanguage($current_language);
-    	$this->view->title = $content['title'];
-    	$this->view->body = $content['body'];
+    	$this->view->title = _t('LBL_MENU_Faq');
+    	$this->view->body = VNMLS_Model_Table_Node::getListFaqHTML();
     }
     
     public function insuranceAction(){
