@@ -1,54 +1,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
-<div class="left-content">
-    <!--
-	<div class="newslettlers_wrapper">
-        <div class="container">
-            <div align="center">
-                <a href="/images/newslettlers/Thanksgiving_Chirstmas 2011.jpg" rel="prettyPhoto" title="This is the description">
-                    <img src="/images/newslettlers/Thanksgiving_Chirstmas 2011_small.jpg" border="0" alt=""/>
-                </a>
-            </div>
-            <div class="meta">
-                Thanksgiving/Chirstmas 2011
-            </div>
-        </div>
-    </div>
-
-    <div class="newslettlers_wrapper">
-        <div class="container">
-            <div align="center">
-                <img src="/images/newslettlers/Thanksgiving_Chirstmas 2011_small.jpg" border="0" alt=""/>
-            </div>
-            <div class="meta">
-                Thanksgiving/Chirstmas 2011
-            </div>
-        </div>
-    </div>
-
-    <div class="newslettlers_wrapper wrapper_right">
-        <div class="container">
-            <div align="center">
-                <img src="/images/newslettlers/Thanksgiving_Chirstmas 2011_small.jpg" border="0" alt=""/>
-            </div>
-            <div class="meta">
-                Thanksgiving/Chirstmas 2011
-            </div>
-        </div>
-    </div>
-    <div style="clear: both"></div>
-    <div class="newslettlers_wrapper">
-        <div class="container">
-            <div align="center">
-                <img src="/images/newslettlers/Thanksgiving_Chirstmas 2011_small.jpg" border="0" alt=""/>
-            </div>
-            <div class="meta">
-                Thanksgiving/Chirstmas 2011
-            </div>
-        </div>
-    </div>
--->
+<div class="page-content">
+    <div class="page-title">
+        <div class="sub">How could</div>
+        <div class="main">we be reached?</div>
+        </div>                    
+    <div class="detail-content-newsletter">                        
+        <div>
+            <?php echo $this->body; ?>
+	    </div>
+    </div>          
 </div>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
@@ -109,7 +71,7 @@
         var htmls = [];
         for (var i = 1; i <= nTotal; i++) {
             var data = arrNewsletters[i - 1];
-            if (i % 3 == 0) {
+            if (i % 2 == 0) {
                 data['wrapper_right'] = 'wrapper_right';
             } else {
                 data['wrapper_right'] = '';
@@ -119,11 +81,11 @@
                 html = html.replace('{{' + attr[j] + '}}', data[attr[j]]);
             }
             htmls.push(html)
-            if (i % 3 == 0) {
+            if (i % 2 == 0) {
                 htmls.push('<div style="clear: both"></div>');
             }
         }
-        $(".left-content").html(htmls.join(''));
+        $(".detail-content-newsletter").html(htmls.join(''));
         $("a[rel^='prettyPhoto']").prettyPhoto({ allow_resize: false });
     });
 </script>

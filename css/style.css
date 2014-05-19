@@ -166,6 +166,13 @@ img {border:none;}
     background:url("/images/banner/banner_8.jpg");
 }
 
+.forms-banner{
+    background:url("/images/banner/banner_9.jpg");
+}
+
+.newsletters-banner{
+    background:url("/images/banner/banner_10.jpg");
+}
 
 .banner-image .banne-slogan{
     position : absolute;
@@ -520,4 +527,59 @@ img {border:none;}
 .list_results a:hover {
     color: #666666;
     text-decoration: underline;
+}
+
+.detail-content-forms{
+    padding: 8px 0 0px;
+}
+
+.detail-content-forms div{
+    background: #6B6998;
+    padding : 15px 20px 0;
+}
+
+.detail-content-newsletter{
+    padding: 15px 0 0px;
+    background: #6B6998;
+}
+
+.newslettlers_wrapper {
+    width: 206px;float: left;padding: 0px 17px 15px 50px;
+}
+
+
+.wrapper_right{
+    padding-right: 0px !important;
+}
+
+.newslettlers_wrapper .container{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+    background: #fff;
+    
+    cursor: pointer;
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    cursor: zoom-in;
+}
+
+.newslettlers_wrapper .container a {
+    cursor: pointer;
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    cursor: zoom-in;
+}
+
+.newslettlers_wrapper .container .meta{
+    border-top: 1px solid #e7e7e7;
+    text-align: center;
+    font-weight: bold;
+    color: #37627d;
+    padding: 6px 5px 7px;
 }
