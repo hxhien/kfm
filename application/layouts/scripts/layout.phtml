@@ -101,53 +101,7 @@
 					</div>
 				</div>
 				<?php } ?>
-
-
-            <div class="address-block">
-                <div class="address">
-                    <span class='sprite icon_add left'></span>
-                    <div>
-                        1930 Rt. 70 E. G-38 (Executive Mews) 
-                        Cherry Hill, NJ 08003-2150
-                    </div>
-                </div>
-
-                <div class="phone">
-                    <span class='sprite icon_phone left'></span>
-                    <div>
-                        856.520.8718
-                        <br/>856.873.3266 (Korean)
-                    </div>
-                </div>
-
-                <div class="fax">
-                    <span class='sprite icon_fax left'></span>
-                    <div>
-                        856.520.8719
-                    </div>
-                </div>
-
-                <div class="email">
-                    <span class='sprite icon_mail left'></span>
-                    <div>
-                        kwak.family.medicine@hotmail.com
-                    </div>
-                </div>                
-            </div>
-            <div class="search-box">
-            </div>
-            <div class="working-hour">
-                <ul>
-                    <li class="header">Working Hours</li>
-                    <li><div>Mon</div> 10 AM - 7 PM</li>
-                    <li class="blue"><div class="">Tue</div> 1 PM - 5 PM</li>
-                    <li><div>Wed</div> 8 AM - 5 PM</li>
-                    <li class="blue"><div>Thu	</div>	10 AM - 7 PM</li>
-                    <li><div>Fri</div> 9  AM - 3 PM</li>
-                    <li class="blue"><div>Sat <span class="tip">(closed 4th Sat)</span></div> 8 AM - 12 PM</li>
-                </ul>
-            </div>
-            
+            <?php echo getBlockContent(5);?>
             <div class="core-value-box">
                 <div class='sprite typo_1'></div>
             </div>
@@ -173,7 +127,7 @@
                 </div>
                 <div class="banner-image <?= ($this->controller != 'index') ? 'index' : $this->action ?>-banner">
                     <div class="banne-slogan">
-                        <div>WHERE YOUR FAMILY'S HEALTH IS PROTECTED</div>
+                        <div><?php echo _t("LBL_Where Your Family’s Health Is Protected");?></div>
                     </div>
                 </div>
             </div>

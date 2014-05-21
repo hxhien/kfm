@@ -138,7 +138,7 @@ img {border:none;}
     background:url("/images/banner/banner_2.jpg");
 }
 
-.staff-banner{
+.login-banner, .logout-banner, .staff-banner{
     background:url("/images/banner/banner_3.jpg");
 }
 
@@ -582,4 +582,78 @@ img {border:none;}
     font-weight: bold;
     color: #37627d;
     padding: 6px 5px 7px;
+}
+
+.form_message {
+	color: #008800;
+	font-weight: bold;
+}
+
+.form_error {
+	color: #880000;
+	font-weight: bold;
+}
+
+.form-title {
+	font-size: 11pt;
+	height: 20px;
+	border-bottom: 1px solid #888888;
+	padding: 2px;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.form_message_error {
+	color: #880000;
+	font-style: italic;
+}
+
+.form_input_error {
+	background-color: #FFCCCC;
+}
+
+.login-cont {
+    height: 340px;
+    min-height: 340px;
+    padding-top: 30px;
+}
+
+.login-block {
+    border: 1px solid #CCCCCC;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    width: 300px;
+}
+
+.login-title {
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.login-messages {
+    color: #FF0000;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+.login-block label, .login-block input {
+    margin-top: 5px;
+}
+
+.login-block label {
+    float: left;
+    width: 100px;
+}
+
+.login-block input {
+    width: 180px;
+}
+
+.login-block label, .login-block input {
+    margin-top: 5px;
 }

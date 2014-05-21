@@ -17,7 +17,7 @@ class BaseController extends Zend_Controller_Action {
 		*/
 		$arrCommonLbl = array('LBL_MENU_Home', 'LBL_MENU_About Dr. Kwak','LBL_MENU_Staff', 'LBL_MENU_Location and hours', 'LBL_MENU_Contact us',
 							  'LBL_MENU_FAQ', 'LBL_MENU_Insurance', 'LBL_MENU_News', 'LBL_MENU_Links', 'LBL_MENU_Forms', 'LBL_MENU_Newsletters',
-							  'LBL_MENU_My Patient Page', 'LBL_Testimonials', 'LBL_Languages', 'LBL_Search', 'LBL_Contact information', 'LBL_KFM on Facebook', 'LBL_KFM on Twitter');
+							  'LBL_MENU_My Patient Page', 'LBL_Testimonials', 'LBL_Languages', 'LBL_Search', 'LBL_Contact information', 'LBL_Where Your Family’s Health Is Protected');
 		loadDictionary($arrCommonLbl);	
     }
 	
