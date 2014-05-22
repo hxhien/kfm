@@ -132,35 +132,7 @@
                 </div>
             </div>
             <div class="main-container">
-                <?php echo $this->layout()->content ?>
-                    <!--
-                    <div class="detail-content">     
-		                <div style="margin:-5px 0 10px 10px;position: relative;cursor:pointer;">
-                            <a href="http://www.youtube.com/watch?v=rDl-XQs3Sug" rel="prettyPhoto">
-                            <div style="position: absolute;left:217px;top:110px;">
-                                <img width="120" alt="Welcome to Kwak Family Medicine video" src="/images/play_movie_icon.png"/>
-                            </div>
-			                <img width="537" alt="Welcome to Kwak Family Medicine video" src="/images/welcome_video.jpg"/>
-                            </a>		
-		                </div>
-                        <script type="text/javascript" charset="utf-8">
-                        $(document).ready(function(){
-                            $("a[rel^='prettyPhoto']").prettyPhoto();
-                        });
-                        </script>
-		                <p>
-	                        Welcome to Kwak Family Medicine, PC (KFM), the practice of James J. Kwak, MD, FAAFP.&nbsp; KFM is a solo primary-care office that cares for all ages from infants to the elderly.&nbsp; We offer preventative as well as problem-focused office visits to help manage our patients’ health.&nbsp; Patients can bring their children as well as their elderly parents; we want to care for your entire family’s health.&nbsp;</p>
-                        <br/>
-                        <p>
-	                        At KFM, we take your health seriously.&nbsp; Using state-of-the art equipment, we can perform spirometry test and electrocardiogram.&nbsp; We use a web-based electronic medical record system that protects patients’ confidentiality and safe-guards the data, while making the records easily accessible to us and to the patients.&nbsp; Our patients will have access to some of the key elements of their own medical records via internet.&nbsp; As more exciting technological innovations become available in healthcare, they will be closely studied to see if they can be embraced at KFM.&nbsp;</p>
-                        <br/>
-                        <p>
-	                    Dr. Kwak is an experienced board-certified family physician skilled in managing and diagnosing a wide array of childhood and adult medical problems.&nbsp; He is diligent about keeping abreast of the latest standards in family medicine and is skilled in the art of listening.&nbsp; He has a strong interest in musculoskeletal medicine and office procedures, offering the following services to his patients – prolotherapy, steroid joint injections, laceration repairs, nail surgery, thrombosed hemorrhoid excision, Cosmetic Botox,&nbsp;and dermatologic surgical procedures.&nbsp;</p>
-                        <br/>
-                        <p>
-	                    If a referral or a recommendation to a specialist is needed, Dr. Kwak will gladly assist you in finding the best consultant to manage your condition.</p>
-                    </div>
-                    -->                
+                <?php echo $this->layout()->content ?>                
                <?php if ($this->controller == 'index'){ ?>
                 <div class="page-content-right">
                 <div class="testimonials-container">
@@ -173,23 +145,25 @@
                             <span class='sprite testi_1 left'></span>
                         </div>
                         <div class="testo-content">
-                            <div class="testo-name">Donna</div>
+                            <div class="testo-name"><?= $this->testimonials[0]['name']?></div>
                             <div class="testo-text">
-                                “During a physical exam, Dr. Kwak discovered an abnormal prostate in my husband. Even though his age and PSA were not in favor of prostate cancer, Dr. Kwak immediately ordered a biopsy and even went to bat with the insurance company down to the wire to ensure that the testing could be done. As it turned out, my husband did have prostate cancer and we are forever grateful to Dr. Kwak for finding it early, and saving his life.”
+                                “<?= $this->testimonials[0]['text']?>”
                             </div>                        
                         </div>
                     </div>
-                    <div class="clr"></div>
-                    <div class="testo-break-line"></div>
-                    <div class="testo-detail">
+                    <div id="testo-break">
+                        <div class="clr"></div>
+                        <div class="testo-break-line"></div>
+                    </div>
+                    <div class="testo-detail" id="testo-detail2">
                         <div class="testo-logo">
                             <span class='sprite testi_2 left'></span>
                         </div>
                         <div class="testo-content">
-                            <div class="testo-name">Donna</div>
+                            <div class="testo-name"><?= $this->testimonials[1]['name']?></div>
                             <div class="testo-text">
-                                “During a physical exam, Dr. Kwak discovered an abnormal prostate in my husband. Even though his age and PSA were not in favor of prostate cancer, Dr. Kwak immediately ordered a biopsy and even went to bat with the insurance company down to the wire to ensure that the testing could be done. As it turned out, my husband did have prostate cancer and we are forever grateful to Dr. Kwak for finding it early, and saving his life.”
-                            </div>                        
+                                “<?= $this->testimonials[1]['text']?>”
+                            </div>
                         </div>
                     </div>
                     </div>
@@ -240,5 +214,51 @@
             </div>
         </div>
     </div>
+<script>
+    $(document).ready(function () {
+        var testimonials = <?php echo json_encode($this->testimonials);?>;
+        var currentTestoPage = 0;
+        var totalPage = testimonials.length / 2;
+        if (testimonials.length % 2 == 1){
+            totalPage++;
+        }
+        $('#testo_more_back').click(function () {
+            $( "#testo-list" ).fadeOut( 500, function() {
+                changeTestoPage(-1);
+            });
+        });
+
+        $('#testo_more_next').click(function () {
+            $( "#testo-list" ).fadeOut( 500, function() {
+                changeTestoPage(1);
+            });
+        });
+        
+        function changeTestoPage(changePosition){
+            currentTestoPage += changePosition;
+            if (currentTestoPage < 0){
+                currentTestoPage = totalPage - 1;
+            }else if (currentTestoPage >= totalPage){
+                currentTestoPage = 0;
+            }
+            var nOffset = 2 * currentTestoPage;
+            var nameObjs = $(".testo-name");
+            var textObjs = $(".testo-text");
+            nameObjs[0].innerHTML = testimonials[nOffset].name;
+            textObjs[0].innerHTML = testimonials[nOffset].text;
+            nOffset++;
+            if (nOffset >= testimonials.length - 1){
+                $('#testo-break').hide();
+                $('#testo-detail2').hide();
+            }else{
+                $('#testo-break').show();
+                $('#testo-detail2').show();
+                nameObjs[1].innerHTML = testimonials[nOffset].name;
+                textObjs[1].innerHTML = testimonials[nOffset].text;
+            }
+             $( "#testo-list" ).fadeIn(500);
+        }
+    });
+</script>
   </body>
 </html>

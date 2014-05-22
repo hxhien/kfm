@@ -48,21 +48,6 @@ txtSearch_submit = function(){
 		objSearch.focus();
 	}
 }
-var currentTestoPage = 0;
-$(document).ready(function () {
-    $('#testo_more_back').click(function () {
-        changeTestoPage(-1);
-    });
-
-    $('#testo_more_next').click(function () {
-        changeTestoPage(1);
-    });
-});
-
-function changeTestoPage(changePosition){
-    currentTestoPage += changePosition;
-}
-
 //Dropdown code
 var timeout	= 500;
 var closetimer	= 0;

@@ -27,5 +27,6 @@ class BaseController extends Zend_Controller_Action {
 		$this->view->module = $this->getRequest()->getModuleName();
 		$this->view->controller = $this->getRequest()->getControllerName();
 		$this->view->action = $this->getRequest()->getActionName();
+        $this->view->testimonials = VNMLS_Model_Table_Node::getTestimonials();
 	}
 }

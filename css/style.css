@@ -282,6 +282,11 @@ img {border:none;}
     font-weight: normal;
 }
 
+.working-hour li div .tip_korean{
+    font-size: 10px;
+    font-weight: normal;
+}
+
 .right-content{
     float: left;
 }
@@ -361,6 +366,8 @@ img {border:none;}
 .testo-detail .testo-content .testo-text{
     font-style: italic;
     padding: 5px 0;
+    font-family:times new roman;
+    font-size: 14px;
 }
 
 .testo-break-line{
