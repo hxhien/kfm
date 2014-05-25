@@ -11,7 +11,7 @@ img {border:none;}
 #top-bg{
     position: absolute;
     background:url("/images/image_bg.jpg");
-    width: 1130px;
+    width: 100%;
     height: 420px;
     z-index: -1;
     display: none;

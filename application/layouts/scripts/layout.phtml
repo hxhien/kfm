@@ -24,13 +24,24 @@
 	  })();
 	</script>
     <script>
-      $(document).ready(function () {
-          $("#top-bg").show();
-          $("#top-bg").css("left", $("#header-logo").offset().left);
-          $(window).resize(function () {
-              $("#top-bg").css("left", $("#header-logo").offset().left);
-          });
-      });
+        $(document).ready(function () {
+            var changeBgImage = function () {
+                if ($(window).width() > 1420) {
+                    var zoom = $(window).width() / 1420;
+                    console.log(zoom);
+                    $("#top-bg").css("zoom", zoom);
+                    //$("#top-bg").css("width", $(window).width() + 'px');
+                } else {
+                    $("#top-bg").css("zoom", 1);
+                    $("#top-bg").css("width", $(window).width() + 'px');
+                }
+            };
+            $("#top-bg").show();
+            changeBgImage();
+            $(window).resize(function () {
+                changeBgImage();
+            });
+        });
    </script>
   </head>
   <body>
@@ -119,8 +130,8 @@
             <div class="banner-container">
                 <div class="language-bar">
                     <ul id="container-language">
-                        <li><a href="http://kwakfamilymedicine.com/" alt="English" title="English" style="font-weight:bold">English</a></li>
-                        <li><a href="http://kr.kwakfamilymedicine.com/" alt="한국어" title="한국어">한국어</a></li>
+                        <li><a href="http://new.kwakfamilymedicine.com/" alt="English" title="English" style="font-weight:bold">English</a></li>
+                        <li><a href="http://krnew.kwakfamilymedicine.com/" alt="한국어" title="한국어">한국어</a></li>
                         <li class="last"><a href="#" onmouseover="mopen('m1')" onmouseout="mclosetime()">All Languages</a>
                         	<div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()" style="visibility: hidden;">
 					        <a href="http://www.google.com/translate?u=http%3A%2F%2Fkwakfamilymedicine.com%2F&amp;langpair=en%7Cfr&amp;hl=en&amp;ie=UTF8" target="_blank">Français</a>
