@@ -14,7 +14,7 @@ img {border:none;}
     width: 100%;
     height: 420px;
     z-index: -1;
-    display: none;
+    display: none;	
 }
 
 .header-logo{
@@ -42,7 +42,7 @@ img {border:none;}
 
 .nav-bar {}
 .nav-bar ul { background:#a5986f;width :240px;}
-.nav-bar li{ height: 40px;}
+.nav-bar li{ height: 37px;}
 .nav-bar li div{ padding: 13px 0 0 15px;}
 .nav-bar a { color:white; text-decoration:none; text-transform:uppercase; font-size:12px;font-weight:bold;}
 .nav-bar a:hover { text-decoration:underline}

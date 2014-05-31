@@ -12,6 +12,54 @@ class IndexController extends BaseController
         $this->view->description = 'Kwak Family Medicine, PC, the practice of James J. Kwak, MD. KFM is a solo primary-care office that cares for all ages from infants to the elderly';
     }
 
+    public function patientfusionAction()
+    {
+        $data = file_get_contents("https://www.patientfusion.com/doctor/james-kwak-md-faafp-90926");
+        echo $data;
+        exit;
+    }
+
+    public function facebookAction()
+    {
+        $lastest_post_id_saved = VNMLS_Model_Table_Node::getLastestFbPostId();
+        if (!$lastest_post_id_saved){
+            $lastest_post_id_saved = 0;
+        }
+        $page_oauth = file_get_contents('https://graph.facebook.com/oauth/access_token?client_id=112687442090932&client_secret=288d9a35d42d4c82b61f13a762026d96&grant_type=client_credentials');
+        $token = substr($page_oauth, 13);
+        //$token = '112687442090932|5J2FYZjxL3tGvNxpOv0Cj_AeLMU';
+        $page_posts = file_get_contents('https://graph.facebook.com/158413460880351/posts?fields=message&access_token='.$token);
+        $pageposts = json_decode($page_posts);
+        $db = VNMLS_Db_Table::getDB();
+        foreach($pageposts->data as $post){
+            if (isset($post->message)){
+                $post_id = explode('_', $post->id);
+                $post_id = $post_id[1];
+                if ($post_id <= $lastest_post_id_saved){
+                    break;
+                }
+                $nodes = new VNMLS_Model_Table_Node();
+			    $node = $nodes->createRow();
+                $node->type = 'news';
+		        $node->title = "Facebook post {$post_id}";
+                $node->status = 'active';
+                $node->languages = 'en';
+    	        $node->save();
+                $data = array();
+                $data['node_id'] = $node->id;
+				$data['language'] = 'en';
+                $data['body'] = $post->message;
+                $data['post_id'] = $post_id;
+                $created_time = $post->created_time;
+                $created_time = str_replace("T", " ", $created_time);
+                $created_time = str_replace("+0000", "", $created_time);
+                $data['created_date'] = $created_time;
+				$db->insert("node_news_content", $data);
+            }
+        }
+        exit;
+    }
+    
     public function indexAction()
     {
     	global $current_language;
@@ -21,7 +69,7 @@ class IndexController extends BaseController
     	$this->view->body = $content['body'];
     	loadDictionary(array("LBL_About Our Practice", "LBL_Core_Values_KFM"));
     }
-    
+
     public function aboutAction(){
     	global $current_language;
     	$node = VNMLS_Db_Table::fetch("Node", 2);
@@ -81,11 +129,14 @@ class IndexController extends BaseController
     	$startNo = 0;
     	if (isset($_GET['s']) && is_numeric($_GET['s'])) $startNo = $_GET['s'];
     	$contents = VNMLS_Model_Table_Node::getListNews($startNo);
-    	$this->view->htmlResult = $contents['html'];
-    	$viewNext = false;
+    	$this->view->body = $contents['html'];
+        $this->view->total= $contents['total'];
+    	/*
+        $viewNext = false;
     	$viewBack = false;
     	if ($startNo > 0) $viewBack = true;
     	if ($startNo + VNMLS_Model_Table_Node::$NUMBER_NEWS_PER_PAGE > $contents['total']) $viewNext = true;
+        */
     }
     
     public function contactAction(){

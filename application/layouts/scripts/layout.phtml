@@ -6,7 +6,7 @@
     <meta name="description" content="<?php echo $this->description;?>"/>
     <meta name="viewport" content="width=1130" />
     <title><?php echo ($this->title? $this->title : "Kwak Family Medicine, PC"); ?></title>
-    <?php echo $this->headLink()->appendStylesheet('/css/style.css?20130923') ?>
+    <?php echo $this->headLink()->appendStylesheet('/css/style.css?20140531') ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="/js/common.js?20110405"></script>
     <script src="/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
@@ -26,15 +26,20 @@
     <script>
         $(document).ready(function () {
             var changeBgImage = function () {
-                if ($(window).width() > 1420) {
-                    var zoom = $(window).width() / 1420;
-                    console.log(zoom);
-                    $("#top-bg").css("zoom", zoom);
-                    //$("#top-bg").css("width", $(window).width() + 'px');
-                } else {
-                    $("#top-bg").css("zoom", 1);
-                    $("#top-bg").css("width", $(window).width() + 'px');
-                }
+				if ( $.browser.mozilla == true) {
+					$("#top-bg").css("width", "1130px");
+					$("#top-bg").css("left", $("#header-logo").offset().left);
+				}else{
+					if ($(window).width() > 1420) {
+						var zoom = $(window).width() / 1420;
+						console.log(zoom);
+						$("#top-bg").css("zoom", zoom);					
+						//$("#top-bg").css("width", $(window).width() + 'px');
+					} else {
+						$("#top-bg").css("zoom", 1);
+						$("#top-bg").css("width", $(window).width() + 'px');
+					}
+				}
             };
             $("#top-bg").show();
             changeBgImage();
@@ -53,9 +58,9 @@
 				<a href="/index"><img src="/images/logo.png" alt="Kwak Family Medicine FC" border="0"/></a>
 			</div>
             <div class="social-connect right">                
-				<a href="http://www.facebook.com/pages/Kwak-Family-Medicine-PC/158413460880351"><img src="/images/icon_fb.png" border="0" alt="Facebook"></a>
+				<a target="facebook" href="http://www.facebook.com/pages/Kwak-Family-Medicine-PC/158413460880351"><img src="/images/icon_fb.png" border="0" alt="Facebook"></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="http://twitter.com/jameskwakmd"><img src="/images/icon_twitter.png" border="0" alt="Twitter"></a>				
+                <a target="twitter" href="http://twitter.com/jameskwakmd"><img src="/images/icon_twitter.png" border="0" alt="Twitter"></a>				
             </div>
 		</div>
         <div class="clr"></div>
@@ -69,17 +74,12 @@
 					<li<?php echo ($this->action == 'contact' ? ' class="current"' : '') ?>><div><a href="/index/contact"><?php echo _t("LBL_MENU_Contact us");?></a></div></li>
 					<li<?php echo ($this->action == 'faq' ? ' class="current"' : '') ?>><div><a href="/index/faq"><?php echo _t("LBL_MENU_FAQ");?></a></div></li>
 					<li<?php echo ($this->action == 'insurance' ? ' class="current"' : '') ?>><div><a href="/index/insurance"><?php echo _t("LBL_MENU_Insurance");?></a></div></li>
-					<!--<li<?php echo ($this->action == 'news' ? ' class="current"' : '') ?>><div><a href="/index/news"><?php echo _t("LBL_MENU_News");?></a></div></li>-->
+					<li<?php echo ($this->action == 'news' ? ' class="current"' : '') ?>><div><a href="/index/news"><?php echo _t("LBL_MENU_News");?></a></div></li>
 					<li<?php echo ($this->action == 'links' ? ' class="current"' : '') ?>><div><a href="/index/links"><?php echo _t("LBL_MENU_Links");?></a></div></li>
 					<li<?php echo ($this->action == 'forms' ? ' class="current"' : '') ?>><div><a href="/index/forms"><?php echo _t("LBL_MENU_Forms");?></a></div></li>
                     <li<?php echo ($this->action == 'newsletters' ? ' class="current"' : '') ?>><div><a href="/index/newsletters"><?php echo _t("LBL_MENU_Newsletters");?></a></div></li>
-                    <li<?php echo (($this->action == 'login' || $this->action == 'logout') ? ' class="current"' : '') ?>>
-                        <div>
-                        <?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
-						    <a href="/index/logout">Logout</a>
-					    <?php }else{ ?>
-                        <a href="/index/login"><?php echo _t("LBL_MENU_My Patient Page");?></a>
-                        <?php } ?>
+                    <li><div>
+                        <a href="https://my.patientfusion.com/"><?php echo _t("LBL_MENU_My Patient Page");?></a>
                         </div>
                     </li>
                 </ul>
@@ -221,11 +221,7 @@
 					<li<?php echo ($this->action == 'forms' ? ' class="current"' : '') ?>><a href="/index/forms"><?php echo _t("LBL_MENU_Forms");?></a></li>
 				</ul>
                 <div class="user-link">
-                    <?php if (VNMLS_Model_Table_Users::getCurrentUserID()){ ?>
-						<a href="/index/logout">Logout</a>
-					<?php }else{ ?>
-					<a href="/index/login"><?php echo _t("LBL_MENU_My Patient Page");?></a>
-					<?php } ?>
+					<a href="https://my.patientfusion.com/"><?php echo _t("LBL_MENU_My Patient Page");?></a>
                 </div>
 			</div>
             <div class="clr"></div>
